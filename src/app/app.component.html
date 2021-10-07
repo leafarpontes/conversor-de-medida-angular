@@ -1,0 +1,102 @@
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+    <img src="../assets/icons8-sewing-tape-measure-48.png" class="mr-2" alt="">
+    Conversor de Medidas
+  </a>
+</nav>
+
+<div class="escolha-conversao mb-3 mt-4">
+  <p>Escolha uma conversão:</p>
+  <select name="tipoConversao" id="tipoConversao" [(ngModel)]=conversao.tipoConversao #tipoConversao="ngModel" class="custom-select">
+    <option value="kmToM">Quilômetro para metro</option>
+    <option value="mToKm">Metro para quilômetro</option>
+    <option value="mToCm">Metro para centimetro</option>
+    <option value="cmToM">Centímetro para metro</option>
+    <option value="cmToMm">Centímetro para milímetro</option>
+    <option value="mmToCm">Milímetro para centímetro</option>
+  </select>
+</div>
+
+<div *ngIf="conversao.tipoConversao === 'kmToM'" class="input-conversao">
+  <h4> Quilômetro para metro</h4>
+  <div class="row">
+    <div class="col-sm">
+      <label for="kilometer">Km</label>
+      <input [(ngModel)]="km" name="km" type="number" id="km" class="form-control" />
+    </div>
+    <div class="col-sm">
+      <label for="meter">M</label>
+      <div> {{km | kilometerToMeter}} </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="conversao.tipoConversao === 'mToCm'" class="input-conversao">
+  <h4> Metro para centímetro</h4>
+  <div class="row">
+    <div class="col-sm">
+      <label for="metro">M</label>
+      <input [(ngModel)]="m" name="m" type="number" id="m" class="form-control" />
+    </div>
+    <div class="col-sm">
+      <label for="centimetro">Cm</label>
+      <div> {{m | metroParaCentimetro}} </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="conversao.tipoConversao === 'mToKm'" class="input-conversao">
+  <h4> Metro para quilômetro</h4>
+  <div class="row">
+    <div class="col-sm">
+      <label for="metro">M</label>
+      <input [(ngModel)]="m" name="m" type="number" id="m" class="form-control" />
+    </div>
+    <div class="col-sm">
+      <label for="kilometro">Km</label>
+      <div> {{m | meterToKilometer}} </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="conversao.tipoConversao === 'cmToM'" class="input-conversao">
+  <h4> Centímetro para metro</h4>
+  <div class="row">
+    <div class="col-sm">
+      <label for="cm">Cm</label>
+      <input [(ngModel)]="cm" name="cm" type="number" id="cm" class="form-control" />
+    </div>
+    <div class="col-sm">
+      <label for="metro">M</label>
+      <div> {{cm | centimetroParaMetro}} </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="conversao.tipoConversao === 'cmToMm'" class="input-conversao">
+  <h4> Centímetro para milímetro</h4>
+  <div class="row">
+    <div class="col-sm">
+      <label for="cm">Cm</label>
+      <input [(ngModel)]="cm" name="cm" type="number" id="cm" class="form-control" />
+    </div>
+    <div class="col-sm">
+      <label for="milimetro">Mm</label>
+      <div> {{cm | centimetroParaMilimetro}} </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="conversao.tipoConversao === 'mmToCm'" class="input-conversao">
+  <h4> Milímetro para centímetro</h4>
+  <div class="row">
+    <div class="col-sm">
+      <label for="mm">Mm</label>
+      <input [(ngModel)]="mm" name="mm" type="number" id="mm" class="form-control" />
+    </div>
+    <div class="col-sm">
+      <label for="centimetro">Cm</label>
+      <div> {{mm | milimetroParaCentimetro}} </div>
+    </div>
+  </div>
+</div>
